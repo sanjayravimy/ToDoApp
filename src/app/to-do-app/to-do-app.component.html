@@ -1,6 +1,5 @@
 <div class="container-fluid">
     <div class="row">
-
         <div class="col-md-3" style="background-color:rgba(41, 38, 38, 0.936); height: 93vh;">
             <mat-card class="mt-3">
                 <form [formGroup]="toDoApp">
@@ -32,6 +31,8 @@
                                         <button mat-icon-button color="warn" (click)="deleteTask(deleteTheTask)"><mat-icon>delete</mat-icon></button>
                                     </div>
                                 </div>
+                                <div class="example-box" >{{res.ToDo[0]}}  </div>
+                                <div class="example-box" >{{res.ToDo[1]}} </div>
                             </div>
                         </div>   
                     </div>
@@ -44,7 +45,10 @@
                                 <div class="example-box" *ngFor="let taskName of inProgress; let deleteTheTask = index" cdkDrag>{{taskName.description}}
                                     <button mat-icon-button color="warn" (click)="deleteInprogress(deleteTheTask)"><mat-icon>delete</mat-icon></button>
                                 </div>
+                                <div class="example-box" >{{res.InProgress[0]}}</div>
+                            <div class="example-box" >{{res.InProgress[1]}}</div>
                             </div>
+                
                         </div>   
                     </div>
                     <div class="col-md-4">  
@@ -58,8 +62,8 @@
                                         <button mat-icon-button color="warn" (click)="deleteDoneTask(deleteTheTask)"><mat-icon>delete</mat-icon></button>
                                         <button class ="iconColor" mat-icon-button color="accent"><mat-icon>check_circle</mat-icon></button>
                                     </div>
-                                   
                                 </div>
+                                <div class="example-box" >{{res.Done[0]}}</div>
                             </div>
                         </div>    
                     </div>

@@ -1,4 +1,5 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {FormGroup,FormBuilder,Validators} from '@angular/forms'
 import { Itask } from '../model/Itask';
@@ -9,19 +10,25 @@ import { Itask } from '../model/Itask';
   styleUrls: ['./to-do-app.component.scss']
 })
 export class ToDoAppComponent implements OnInit {
-
+  
   toDoApp !: FormGroup;
   task: Itask[] = [];
   inProgress: Itask[] = [];
   done: Itask[] = [];
   updateIndex: any;
+  res: any;
   isEditEnabled: boolean = false;
-  constructor(private formbuilder: FormBuilder) { }
+  constructor(private formbuilder: FormBuilder, public http: HttpClient) { }
 
   ngOnInit(): void {
     this.toDoApp = this.formbuilder.group({
       taskName: ['', Validators.required]
     })
+
+    let response = this.http.get("http://localhost:8080/toDoList")
+    response.subscribe((data) => 
+      this.res = data
+    );
   }
 
   drop(event: CdkDragDrop<Itask[]>) {
@@ -70,6 +77,5 @@ export class ToDoAppComponent implements OnInit {
     this.updateIndex = undefined;
     this.toDoApp.reset();
   }
-
 }
 

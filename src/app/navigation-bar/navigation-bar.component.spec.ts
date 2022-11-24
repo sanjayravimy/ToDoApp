@@ -1,3 +1,4 @@
+import {ElementRef, NO_ERRORS_SCHEMA, ViewChild} from "@angular/core";
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavigationBarComponent } from './navigation-bar.component';
@@ -8,7 +9,10 @@ describe('NavigationBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavigationBarComponent ]
+      declarations: [ NavigationBarComponent ],
+      providers: [
+      ],
+      schemas: [NO_ERRORS_SCHEMA],
     })
     .compileComponents();
   });

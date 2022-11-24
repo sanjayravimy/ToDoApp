@@ -1,0 +1,7 @@
+---
+applications:
+- name: ToDoAppNg
+  path: dist/
+  random-route: true
+  buildpack: staticfile_buildpack
+  memory: 512M
