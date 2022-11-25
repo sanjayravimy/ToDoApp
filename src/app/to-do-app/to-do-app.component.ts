@@ -25,7 +25,7 @@ export class ToDoAppComponent implements OnInit {
       taskName: ['', Validators.required]
     })
 
-    let response = this.http.get("http://localhost:8080/toDoList")
+    let response = this.http.get("https://todoapp.cfapps.us10-001.hana.ondemand.com/toDoList")
     response.subscribe((data) => 
       this.res = data
     );
